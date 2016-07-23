@@ -25,8 +25,8 @@
     echo "<h1>PHP QR Code</h1><hr/>";
     
     //set it to writable location, a place for temp generated PNG files
-    $PNG_TEMP_DIR = base_url().'temp/';
-    //echo $PNG_TEMP_DIR;
+    $PNG_TEMP_DIR = 'temp/';
+    
     //html PNG location prefix
     $PNG_WEB_DIR = 'temp/';
 
@@ -34,7 +34,7 @@
     
     //ofcourse we need rights to create temp dir
     if (!file_exists($PNG_TEMP_DIR))
-        mkdir($PNG_TEMP_DIR);
+        mkdir($PNG_TEMP_DIR, 0777);
     
     
     $filename = $PNG_TEMP_DIR.'test.png';
@@ -72,7 +72,7 @@
     echo '<img src="'.$PNG_WEB_DIR.basename($filename).'" /><hr/>';  
     
     //config form
-    echo '<form action='.base_url().' method="post">
+    echo '<form action="index.php" method="post">
         Data:&nbsp;<input name="data" value="'.(isset($_REQUEST['data'])?htmlspecialchars($_REQUEST['data']):'PHP QR Code :)').'" />&nbsp;
         ECC:&nbsp;<select name="level">
             <option value="L"'.(($errorCorrectionLevel=='L')?' selected':'').'>L - smallest</option>

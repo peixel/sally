@@ -20,7 +20,23 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-	    echo "hola";
+		//$this->load->view('qr/default');
+		
+		/*
+		$cadena="jorge camacho";
+		
+		$trozo=explode(" ", $cadena);
+		$array_num= count($trozo);
+		
+		for ($i=0; $i <= $array_num-1 ; $i++) { 
+			echo $trozo[$i][0];
+		}*/
+		
+		//$data['principal']=$this->load->view('product/default', null, true);
 		$this->load->view('qr/default');
+		
 	}
+	
+	
+	
 }
